@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List of Cart Items</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Index</th>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>Even</th>
+      </tr>
+
+      <tr data-th-each="item, stat : ${cartItems}">
+        <td data-th-text="${stat.index + 1}"></td>
+        <td data-th-text="${item.itemName}"></td>
+        <td data-th-text="${item.quantity}"></td>
+        <td data-th-text="${stat.first}"></td>
+        <td data-th-text="${stat.last}"></td>
+        <td data-th-text="${stat.even}"></td>
+      </tr>
+    </table>
+  </body>
+</html>

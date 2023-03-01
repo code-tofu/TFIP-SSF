@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>How many numbers, do you wish to generate?</h1>
+    <form
+      action="#"
+      th:action="@{/rand/generate}"
+      th:object="${generateObj}"
+      method="GET"
+    >
+      <p>
+        <input type="text" th:field="*{numberVal}" />
+        <input type="submit" value="Generate" />
+      </p>
+    </form>
+  </body>
+</html>
+
+<!-- 
+// generateObj is the key for value object "Generate" in the model
+// /rand/generate is the URI path for the method to method query string - does this mean we're not using path variable?
+
+The value attribute of the html input tag specifies the value of an <input> element.
+For "button", "reset", and "submit" - it defines the text on the button
+For "text", "password", and "hidden" - it defines the initial (default) value of the input field
+For "checkbox", "radio", "image" - it defines the value associated with the input (this is also the value that is sent on submit)
+
+In the <form> Element, <input type="submit"> displays a submit button (for submitting the form)
+
+GET is used to request data from a specified resource. The submit button triggers the http get method with the resource URI /rand/generate
+
+action needs to be # so that the html form does not trigger any html actions instead of thyme actions
+the html action attribute specifies where to send the form-data when a form is submitted.
+
+* nested interpolation expression. nested to what?
+
+-->
