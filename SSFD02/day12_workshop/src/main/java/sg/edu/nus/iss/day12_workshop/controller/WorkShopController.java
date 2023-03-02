@@ -16,6 +16,8 @@ public class WorkShopController {
         return "workshop";
     }
 
+
+    // <form method="POST" action="workshop/processNumber"> - is this not using thymeleaf?
     @PostMapping("/processNumber")
     public String processNumber(@RequestParam(name="inputNumber", defaultValue="1") Integer unit, Model model) {
 
@@ -27,7 +29,9 @@ public class WorkShopController {
         while(currentValue <= loopValue) {
             int result = (int) ((Math.random() * loopValue)) + 1;
 
+            //check if existing already in List (similar to using Linked Hashset)
             if (!lstIntegers.contains(Integer.valueOf(result))) {
+                //Returns an Integer instance representing the specified int value (Boxing)
                 lstIntegers.add(Integer.valueOf(result));
                 currentValue++;
             }

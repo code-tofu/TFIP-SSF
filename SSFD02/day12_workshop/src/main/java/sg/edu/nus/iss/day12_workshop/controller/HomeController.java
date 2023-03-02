@@ -19,5 +19,7 @@ public class HomeController {
         model.addAttribute("currTime", new Date().toString());
         model.addAttribute("currHour", cal.get(Calendar.HOUR_OF_DAY));
         return "index";
+        //why i can return index when i use home path? 
+        // /http://localhost:3000/home vs http://localhost:3000/index
     }
 }

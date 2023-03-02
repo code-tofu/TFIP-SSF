@@ -9,6 +9,7 @@
 <body>
     <table>
         <tr data-th-each="i : ${numbers}">
+            <!--numbers is the ordered set of rnadom numbers-->
             <td>
                 <span data-th-text="${i}"></span>
                 <img th:src="@{${'/images/' + i + '.jpg'}}" width="150px" height="150px" />

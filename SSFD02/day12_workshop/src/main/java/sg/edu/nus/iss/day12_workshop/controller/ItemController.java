@@ -15,10 +15,12 @@ import org.springframework.ui.Model;
 
 @Controller
 @RequestMapping(path = {"/shoppingCart"})
+//note case sensitive
 public class ItemController {
     
     @Autowired
     ItemService itmSvc;
+    //item service is autowired to itemrepo which creates the list of car items
 
     @GetMapping(produces = "text/html")
     public String displayCart(Model model) {
@@ -26,7 +28,7 @@ public class ItemController {
         model.addAttribute("cartItems", items);
         return "cartList";
     }
-
+    
 
     @GetMapping("{itemname}")
     public String filteredCart(@PathVariable(name="itemname") String itemname, Model model) {
@@ -34,6 +36,7 @@ public class ItemController {
         List<Item> foundItems = items.stream().filter(i -> i.getItemName().equalsIgnoreCase(itemname)).collect(Collectors.toList());
         model.addAttribute("cartItems", foundItems);
 
+        //returns the stream filtered item: http://localhost:3000/shoppingCart/Hermes = Hermes	15
         return "cartList";
     }
 }
