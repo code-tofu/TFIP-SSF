@@ -7,12 +7,18 @@ import java.time.Period;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+//validation jakarta module must be added in spring initializer
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
+
+// Validation is done by Spring based on annotations applied on class fields?
+// In this case, validation is done by model because all the data fields are in the object?
+// Rather than class constructors/setters 
+// Validation is done at front end forms, usually
 
 public class Contact implements Serializable{
     @NotNull(message="Name cannot be null")
@@ -36,7 +42,7 @@ public class Contact implements Serializable{
     @Max(value=100, message="Must be below 100 years old")
     private int age;
 
-
+    
     public Contact(){
         this.id = generateId(8);
     }
@@ -58,6 +64,7 @@ public class Contact implements Serializable{
         this.dateOfBirth = dateOfBirth;
     }
 
+    //?????
     private synchronized String generateId(int numOfChar){
         SecureRandom sr = new SecureRandom();
         StringBuilder sb = new StringBuilder();

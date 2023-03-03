@@ -22,6 +22,7 @@ public class IOUtil {
         if(isDirExist) {
             String osName = System.getProperty("os.name");
             if(!osName.contains("Windows")){
+                //to fix issues with mac directory permissions
                 String permission = "rwxrwx---";
                 Set<PosixFilePermission>  permissions = 
                                 PosixFilePermissions.fromString(permission);

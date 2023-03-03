@@ -24,7 +24,11 @@ public class AddressbookController {
 
     @Autowired
     private AddressbookService adrbkSvc;
-    
+    // Service is split from controller. Business logic is contained in service
+    // Service contains 3 methods save find byId and find all, all from repo. Repo interacts with redis db
+
+
+    //Controller contains all the mapping functions
     @GetMapping
     public String showAddressBookForm(Model model){
         model.addAttribute("contact", new Contact());
@@ -53,4 +57,7 @@ public class AddressbookController {
         model.addAttribute("contacts", ctcs);
         return "contacts";
     }
+
+    // Lists all contacts. 
+    // Find all returns a list of contact from the address book repo
 }

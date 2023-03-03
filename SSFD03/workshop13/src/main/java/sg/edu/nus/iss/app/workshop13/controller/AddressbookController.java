@@ -58,14 +58,15 @@ public class AddressbookController {
 
         //calls getcontact by ID using the contact ID path 
         ctcs.getContactById(model, contactId, appArgs, defaultDataDir);
-
-        //creates a contact instance, reads the data from the file named by contact ID. adds contacts instance into model and displys
+        // methods creates a contact instance, reads the data from the file named by contact ID. adds contacts instance into model. displays when showcontact is returned.
         return "showContact";
     }
 
     @GetMapping(path="/list")
     public String getAllContacts(Model model){
         ctcs.getAllContacts(model, appArgs, defaultDataDir);
+        // methods gets all the contacts as a list from provided directory and adds list to model
+
         return "contacts";
     }
 }

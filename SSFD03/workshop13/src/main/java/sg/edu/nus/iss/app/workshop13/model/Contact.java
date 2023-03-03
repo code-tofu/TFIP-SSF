@@ -103,9 +103,10 @@ public class Contact implements Serializable{
         return dateOfBirth;
     }
 
-    //validation of years
     public void setDateOfBirth(LocalDate dateOfBirth) {
         int calculateAge = 0;
+
+        //calculates age based on current date and date of birth
         if(dateOfBirth != null){
             calculateAge = Period.between(dateOfBirth, LocalDate.now()).getYears();
         }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import sg.edu.nus.iss.app.workshop14.model.Contact;
 import sg.edu.nus.iss.app.workshop14.repository.AddressbookRepository;
 //just a placeholder since there is no business logic
+//intermediary class that calls the repository methods when called by the controller
 @Service
 public class AddressbookService {
     @Autowired

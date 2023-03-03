@@ -17,13 +17,20 @@ public class Workshop13Application {
 	public static void main(String[] args) {
 		SpringApplication app = 
 				new SpringApplication(Workshop13Application.class);
+
+        // DefaultApplicationArguments is default implementation of ApplicationArguments (refer to getDir method)
 		DefaultApplicationArguments appArgs = new DefaultApplicationArguments(args);
+        //appArgs is used to store directory arguments (refer to getDir method)
+
 		List<String> opsVal = appArgs.getOptionValues("dataDir");
 		System.out.println("before createDir");
+
+        // has to create directory for app to function
 		if(null != opsVal){
 			logger.info("" + (String)opsVal.get(0));
 			System.out.println("inside create Dir");
 			createDir((String)opsVal.get(0));
+            //create directory if no directory is provided
 		}else{
 			System.out.println("exit");
 			System.exit(1);

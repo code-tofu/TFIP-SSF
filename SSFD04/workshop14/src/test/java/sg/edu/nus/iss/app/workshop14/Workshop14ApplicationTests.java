@@ -10,4 +10,6 @@ class Workshop14ApplicationTests {
 	void contextLoads() {
 	}
 
+// Test names are titled as functions e.g. testloginsuccessful
+// Testing assertions are usually provided by frameworks e.g. junit
 }
