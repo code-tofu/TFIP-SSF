@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <h1>
+      <span>Hello, </span></span><span th:text="${greetingObj.name} ?: 'there'"></span><span>!</span>
+      <!-- elvis conditional cannot work with string concat -->
+        <br>
+      <span th:if="${greetingObj.name == null}">Hello there!</span>
+      <span th:unless="${greetingObj.name  == null}" th:text="'Hello, ' + ${greetingObj.name} + '!'"></span>
+      <!-- unless is a negative of it (i.e. !condition)-->
+    </h1>
+
+    <div th:switch="${greetingObj.chicken}">
+        <span th:case = "kfc">It's Finger Lickin' Good!</span>
+        <span th:case = "texas">“Bigger. Juicier. Crunchier”</span>
+        <span th:case = "popeye">“Love that Chicken”</span>
+        <span th:case = "*">Where should we get chicken?</span>
+    </div>
+
+    <form
+      action="#"
+      th:action="@{/greeting1}"
+      th:object="${greetingObj}"
+      method="post"
+    >
+
+      <p>Name: <input type="text" th:field="*{name}" /></p>
+
+        <p> Which fast food chain serves the best chicken?</p>
+        <select th:field="*{chicken}">
+            <option value=""> Select </option>
+            <option value="kfc">KFC</option>
+            <option value="texas">Texas Chicken</option>
+            <option value="four">Four Fingers</option>
+            <option value="popeye">Popeye's</option>
+        </select>
+
+        <p> Which drink goes best with chicken?</p>
+        <div class="form-group">
+            <input name="drink" type="radio" value="pepsi" th:field="*{drink}" >Pepsi</option>
+            <input name="drink" type="radio" value="coke" th:field="*{drink}" >Coca-Cola</option>
+            <input name="drink" type="radio" value="sevenup" th:field="*{drink}" >7-up</option>
+            <input name="drink" type="radio" value="rootbeer" th:field="*{drink}" >Root Beer</option>
+            <!-- radiobutton needs to share the same name to be exclusive options -->
+        </div>
+
+
+        <input type="submit" value="Submit" />
+    </form>
+
+    <p th:text="*{extramessage}"> </p>
+
+    <form
+      action="#"
+      th:action="@{/greeting1}"
+      th:object="${greetingObj}"
+      method="post"
+    >
+    <select th:field="*{selectedOption}">
+        <option th:each="option: ${testListTh}" th:value = "${option}" th:text = "${option}"></option>
+    </select>
+    <input type="submit" value="Submit" />
+    </form>
+
+  </body>
+</html>

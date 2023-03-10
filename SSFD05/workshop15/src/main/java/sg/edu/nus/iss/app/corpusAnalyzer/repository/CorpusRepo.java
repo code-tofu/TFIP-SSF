@@ -22,7 +22,7 @@ public class CorpusRepo {
         for (var cp: corpusInput){
             template.opsForHash().put(CORPUS_KEY, (cp.getWord() + " " + cp.getNextWord()),String.valueOf(cp.getCount()));
             //can combine getword and getnextword into  a model method
-            //corpus key can be anything - basically the key used to hash the values to get the hashkeys
+            //corpus key can be anything. corpus key is the key to access the value which is the hashset a.k.a name of the hashset
         }
 
     }

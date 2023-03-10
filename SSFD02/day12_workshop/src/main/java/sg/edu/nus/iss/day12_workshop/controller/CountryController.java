@@ -49,6 +49,7 @@ public class CountryController {
     @GetMapping
     public @ResponseBody List<Country> getAllCountries() {
         //get all countries in ctysvc calls get all countries in ctyrepo which returns a List<Country>
+        //responsebody returns the list as a json or xml tot he get mapping request
         return ctySvc.getAllCountries();
         //where is this returning to?
         

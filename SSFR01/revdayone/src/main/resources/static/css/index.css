@@ -1,0 +1,13 @@
+#oak {
+  width: auto;
+  height: 100%;
+}
+
+#landing {
+  position: relative;
+  margin: auto;
+}
+
+#landing-text {
+  position: absolute;
+}

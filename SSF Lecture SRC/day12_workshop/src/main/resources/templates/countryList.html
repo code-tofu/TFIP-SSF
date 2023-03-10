@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Countries</title>
+</head>
+<body>
+    
+    <table>
+        <tr data-th-each="cty: ${countriesList}">
+            <td data-th-text="${cty.code}"></td>
+            <td data-th-text="${cty.name}"></td>
+            <td data-th-text="${cty.population}"></td>
+        </tr>
+    </table>
+    <br><br>
+
+    <select id="country">
+        <option th:each="c: ${countriesList}" th:value="${c.code}" th:text="${c.name}"></option>
+    </select> 
+</body>
+</html>

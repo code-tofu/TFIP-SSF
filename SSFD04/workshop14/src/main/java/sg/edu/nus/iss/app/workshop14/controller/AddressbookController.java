@@ -20,7 +20,7 @@ import sg.edu.nus.iss.app.workshop14.service.AddressbookService;
 
 @Controller
 @RequestMapping(path="/contact")
-public class AddressbookController {
+                                public class AddressbookController {
 
     @Autowired
     private AddressbookService adrbkSvc;
@@ -40,7 +40,7 @@ public class AddressbookController {
         if(binding.hasErrors()){
             return "addressbook";
         }
-        adrbkSvc.save(contact);
+        adrbkSvc.save(contact);\\\\
         return "showContact";
     }
 
