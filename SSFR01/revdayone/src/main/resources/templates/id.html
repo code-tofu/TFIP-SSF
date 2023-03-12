@@ -9,10 +9,13 @@
 
   <form
     action="#"
-    th:action="@{users/printID}"
+    th:action="@{printID}"
     modelAttribute="id"
     method="post"
   >
+
+  <p th:text = "${helloID}"></p>
+
     <h1>Key In ID:</h1>
     <input type="text" />
     <input type="submit" value="Submit" />

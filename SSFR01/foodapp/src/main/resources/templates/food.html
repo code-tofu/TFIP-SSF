@@ -35,6 +35,7 @@
             th:field="*{name}"
             placeholder="Name of Food"
           />
+          <p data-th-if="${#fields.hasErrors('name')}" data-th-errors = "*{name}" data-th-errorclass="error"></p>
         </div>
         <div class="form-group">
           <label for="foodprice">Price:</label>
@@ -46,7 +47,16 @@
             placeholder="Price of Food"
           />
         </div>
+        <p data-th-if="${#fields.hasErrors('price')}" data-th-errors = "*{price}" th:errorclass="error"></p>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <div
+        class="alert alert-danger"
+        role="alert"
+        th:if="${#fields.hasErrors('global')}"
+      ><p
+      th:each="error : ${#fields.errors('global')}"
+      th:text="${error}"
+      ></p></div>
       </form>
 
       <div><br /></div>

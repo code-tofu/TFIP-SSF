@@ -2,3 +2,8 @@
   max-width: 800px;
   margin: auto;
 }
+
+.error{
+  color: red;
+  font-weight:bold;
+}

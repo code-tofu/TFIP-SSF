@@ -84,7 +84,7 @@ public class UsersController {
 
 
     @PostMapping("/printID")
-    public String printID(@ModelAttribute String id) {
+    public String printID(@ModelAttribute("helloID") String id) {
         return "id";
     }
 
